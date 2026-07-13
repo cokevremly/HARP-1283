@@ -1,6 +1,7 @@
 from analyzer import analyze_url
 from scorer import calculate_score, get_risk_level
 from report import create_report
+from whois_lookup import get_whois_info
 
 
 def main():
@@ -14,12 +15,16 @@ def main():
     print("\nAnalyzing...")
 
     findings = analyze_url(url)
+    whois_info = get_whois_info(url)
+
+   
+    #print(whois_info)
 
     score = calculate_score(findings)
 
     risk_level = get_risk_level(score)
 
-    create_report(findings, score, risk_level)
+    create_report(findings, score, risk_level, whois_info)
     
 
 if __name__ == "__main__":
