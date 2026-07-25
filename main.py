@@ -1,7 +1,10 @@
+import ssl
+
 from analyzer import analyze_url
 from scorer import calculate_score, get_risk_level
 from report import create_report
 from whois_lookup import get_whois_info
+from ssl_lookup import get_ssl_info
 
 
 def main():
@@ -18,16 +21,19 @@ def main():
 
     findings = analyze_url(url)
     whois_info = get_whois_info(url)
-
-   
-    #print(whois_info)
+    ssl_info =get_ssl_info(url)
 
     score = calculate_score(findings)
 
     risk_level = get_risk_level(score)
 
-    create_report(findings, score, risk_level, whois_info)
-    
+
+    create_report(findings, 
+        score, 
+        risk_level, 
+        whois_info, 
+        ssl_info)
+
 
 if __name__ == "__main__":
     main() #fonksiyon çalıştırıldı

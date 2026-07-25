@@ -1,4 +1,4 @@
-def create_report(findings, score, risk_level, whois_info):
+def create_report(findings, score, risk_level, whois_info, ssl_info):
     print("\nSecurity Report")
     print("---------------")
 
@@ -32,6 +32,21 @@ def create_report(findings, score, risk_level, whois_info):
         print("DNSSEC: Not enabled")
     else:
         print(f"DNSSEC: {dnssec}")
+
+    print("\nSSL Information")
+    print("-----------------")
+    issuer = ssl_info.get("issuer") or "Unknown"
+    issued_to = ssl_info.get("issued_to") or "Unknown"
+    valid_from = ssl_info.get("valid_from") or "Unknown"
+    valid_until = ssl_info.get("valid_until") or "Unknown"
+    days_remaining = ssl_info.get("days_remaining")
+
+
+    print(f"Issuer: {issuer}")
+    print(f"Issued To: {issued_to}")
+    print(f"Valid From: {valid_from}")
+    print(f"Valid Until: {valid_until}")
+    print(f"Days Remaining: {days_remaining}")
 
 
     print("\nReport generated successfully.")
