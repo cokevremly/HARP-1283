@@ -10,11 +10,37 @@ def create_report(findings, score, risk_level, whois_info):
 
     print("\nWHOIS Information")
     print("-----------------")
-    registrar = whois_info["registrar"] or "Unknown"
-    print(f"Registrar: {registrar}")
-    print(f"Creation Date: {whois_info['creation_date']}")
-    print(f"Expiration Date: {whois_info['expiration_date']}")
     
+    registrar = whois_info.get("registrar") or "Unknown"
+    creation_date = whois_info.get("creation_date") or "Unknown"
+    updated_date = whois_info.get("updated_date") or "Unknown"
+    expiration_date = whois_info.get("expiration_date") or "Unknown"
+    name_servers = whois_info.get("name_servers") or "Unknown"
+    status = whois_info.get("status") or "Unknown"
+    dnssec = whois_info.get("dnssec") or "Unknown"
+    # .get() kullanmamızın sebebi eğer dictionaryde key yoksa None dönmesini engellemek ve "Unknown" olarak göstermek.
+    #aksi takdirde dictionaryde key yoksa KeyError hatası alırız.
+    
+    print(f"Registrar: {registrar}")
+    print(f"Creation Date: {creation_date}")
+    print(f"Updated Date: {updated_date}")
+    print(f"Expiration Date: {expiration_date}")
+    print(f"Name Servers: {name_servers}")
+    print(f"Status: {status}")
+        
+    if dnssec in ("unsigned", "no", "inactive", None):
+        print("DNSSEC: Not enabled")
+    else:
+        print(f"DNSSEC: {dnssec}")
+
+
+    print("\nReport generated successfully.")
+    print("=" * 40)
+    print("End of Report".center(40))
+    print("=" * 40)
+    print("\nThank you for using the URL Security Analyzer!")
+    print("Stay safe online!")
+    print("=" * 40)
 
 
 

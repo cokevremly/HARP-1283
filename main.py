@@ -10,7 +10,9 @@ def main():
     print("URL Security Analyzer".center(40))
     print("=" * 40)
 
-    url = input("\nEnter a URL: ")
+    url = input("\nEnter a URL: ").strip()  # Kullanıcıdan URL girişi alır ve başındaki/sonundaki boşlukları temizler
+    if not url.startswith(("http://", "https://")):
+        url = "http://" + url  # Eğer URL http veya https ile başlamıyorsa, başına http ekle
     
     print("\nAnalyzing...")
 
