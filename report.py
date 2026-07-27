@@ -1,4 +1,4 @@
-def create_report(findings, score, risk_level, whois_info, ssl_info):
+def create_report(findings, score, risk_level, whois_info, ssl_info, dns_info):
     print("\nSecurity Report")
     print("---------------")
 
@@ -35,6 +35,7 @@ def create_report(findings, score, risk_level, whois_info, ssl_info):
 
     print("\nSSL Information")
     print("-----------------")
+
     issuer = ssl_info.get("issuer") or "Unknown"
     issued_to = ssl_info.get("issued_to") or "Unknown"
     valid_from = ssl_info.get("valid_from") or "Unknown"
@@ -47,6 +48,21 @@ def create_report(findings, score, risk_level, whois_info, ssl_info):
     print(f"Valid From: {valid_from}")
     print(f"Valid Until: {valid_until}")
     print(f"Days Remaining: {days_remaining}")
+
+    print("\nDNS Information")
+    print("-----------------")
+
+    for record_type, records in dns_info.items():
+        print(f"\n{record_type} Records:")
+
+        if records:
+            for record in records:
+                print(f" - {record}")
+        else:
+            print(" - Unknown")
+
+    #a_records = dns_info.get("A") or "Unknown"
+    #print(f"A Records: {a_records}") basic
 
 
     print("\nReport generated successfully.")

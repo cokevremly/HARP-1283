@@ -15,10 +15,12 @@ def calculate_score(findings):
     return score
 
 def get_risk_level(score):
-    if score <= 30:
+    if score <= 20:
         return "LOW"
-    elif score <= 60:
+    elif score <= 50:
         return "MEDIUM"
-    else:
+    elif score <= 80:
         return "HIGH"
+    else:
+        return "CRITICAL"
 
