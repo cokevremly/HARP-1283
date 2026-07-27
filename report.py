@@ -1,4 +1,10 @@
-def create_report(findings, score, risk_level, whois_info, ssl_info, dns_info):
+def create_report(findings, 
+                  score, 
+                  risk_level, 
+                  whois_info, 
+                  ssl_info, 
+                  dns_info, 
+                  virustotal_info):
     print("\nSecurity Report")
     print("---------------")
 
@@ -64,6 +70,14 @@ def create_report(findings, score, risk_level, whois_info, ssl_info, dns_info):
     #a_records = dns_info.get("A") or "Unknown"
     #print(f"A Records: {a_records}") basic
 
+    print("\nVirusTotal Information")
+    print("-----------------")
+
+    if "error" in virustotal_info:
+        print(virustotal_info["error"])
+    else:
+        for key, value in virustotal_info.items(): #virustotal_info dict'indeki items'ı key-value olarak eşleştir.
+            print(f"{key.capitalize()}: {value}")
 
     print("\nReport generated successfully.")
     print("=" * 40)

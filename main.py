@@ -4,6 +4,7 @@ from report import create_report
 from whois_lookup import get_whois_info
 from ssl_lookup import get_ssl_info
 from dns_lookup import dns_lookup
+from virustotal_lookup import virustotal_lookup
 
 
 def main():
@@ -22,6 +23,7 @@ def main():
     whois_info = get_whois_info(url)
     ssl_info =get_ssl_info(url)
     dns_info = dns_lookup(url)
+    virustotal_info = virustotal_lookup(url)
 
     score = calculate_score(findings)
 
@@ -33,7 +35,8 @@ def main():
         risk_level, 
         whois_info, 
         ssl_info,
-        dns_info)
+        dns_info,
+        virustotal_info)
 
 
 if __name__ == "__main__":
