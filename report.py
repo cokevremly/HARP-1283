@@ -4,7 +4,10 @@ def create_report(findings,
                   whois_info, 
                   ssl_info, 
                   dns_info, 
-                  virustotal_info):
+                  virustotal_info,
+                  abuseipdb_info,
+                  otx_info):
+    
     print("\nSecurity Report")
     print("---------------")
 
@@ -78,6 +81,30 @@ def create_report(findings,
     else:
         for key, value in virustotal_info.items(): #virustotal_info dict'indeki items'ı key-value olarak eşleştir.
             print(f"{key.capitalize()}: {value}")
+    
+    print("\nAbuseIPDB Information")
+    print("-----------------")
+
+    data = abuseipdb_info.get("data", {})
+    if data:
+        print(f"IP: {data.get('ipAddress', 'Unknown')}")
+        print(f"Abuse Score: {data.get('abuseConfidenceScore', 'Unknown')}")
+        print(f"Country: {data.get('countryCode', 'Unknown')}")
+        print(f"ISP: {data.get('isp', 'Unknown')}")
+        print(f"Reports: {data.get('totalReports', 'Unknown')}")
+    else:
+        print("No information available for this IP address.")
+
+    print("\nOTX Information")
+    print("-----------------")
+
+    if otx_info:
+        print(f"IP: {otx_info.get('indicator', 'Unknown')}")
+        print(f"Reputation: {otx_info.get('reputation', 'Unknown')}")
+        print(f"Pulse Count: {otx_info.get('pulse_info', {}).get('count', 'Unknown')}")
+        print(f"Malware Families: {', '.join(otx_info.get('malware_families', [])) if otx_info.get('malware_families') else 'Unknown'}")
+        print(f"Country: {otx_info.get('country_name', 'Unknown')}")
+        print(f"ASN: {otx_info.get('asn', 'Unknown')}")
 
     print("\nReport generated successfully.")
     print("=" * 40)
