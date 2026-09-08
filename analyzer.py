@@ -7,7 +7,7 @@ def analyze_url(url):
         findings.append("No HTTPS") #URL'in HTTPS ile başlayıp başlamadığını kontrol eder. Başlamıyorsa "No HTTPS" uyarısı ekler.
 
     if "login" in url.lower():  # URL'de "login" kelimesi geçiyorsa uyarı ekler. küçük harf duyarlılığı için .lower() kullanılır.   
-        findings.appen("Login keyword detected")
+        findings.append("Login keyword detected")
 
     if len(url) > 50:
         findings.append("Long URL detected")

@@ -13,7 +13,7 @@ from otx_lookup import check_ip_otx
 def main():
     
     print("=" * 40)
-    print("URL Security Analyzer".center(40))
+    print("HARP-1283".center(40))
     print("=" * 40)
 
     url = input("\nEnter a URL: ").strip()  # Kullanıcıdan URL girişi alır ve başındaki/sonundaki boşlukları temizler

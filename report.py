@@ -110,7 +110,7 @@ def create_report(findings,
     print("=" * 40)
     print("End of Report".center(40))
     print("=" * 40)
-    print("\nThank you for using the URL Security Analyzer!")
+    print("\nThank you for using the HARP-1283!")
     print("Stay safe online!")
     print("=" * 40)
 
