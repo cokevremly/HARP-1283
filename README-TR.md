@@ -1,6 +1,6 @@
 # 🛡️ HARP-1283
 
-### Hybrid Analysis & Reconnaissance Platform
+### Hybrid Analysis & Reconnaissance Platform v1.0
 
 [for English](README-EN.md)
 
