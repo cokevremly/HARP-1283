@@ -2,5 +2,5 @@
 
 ### Hybrid Analysis & Reconnaissance Platform
 
-[English](README-EN.md)  
+[English](README-EN.md)
 [Türkçe](README-TR.md)
