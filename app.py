@@ -501,6 +501,7 @@ if analyze_button:
         unsafe_allow_html=True
     )
 
+
     if otx_info:
 
         otx_cols = st.columns(3)
@@ -530,12 +531,28 @@ if analyze_button:
 
         with otx_cols[2]:
 
+            country = otx_info.get(
+                "country_name",
+                "Unknown"
+            )
+
+            country_codes = {
+                "United States of America": "USA",
+                "United States": "US",
+                "Germany": "DE",
+                "United Kingdom": "GB",
+                "France": "FR",
+                "Türkiye": "TR",
+            }
+
+            country_display = country_codes.get(
+                country,
+                country
+            )
+
             st.metric(
                 "Country",
-                otx_info.get(
-                    "country_name",
-                    "Unknown"
-                )
+                country_display
             )
 
     else:
@@ -543,6 +560,7 @@ if analyze_button:
         st.info(
             "No OTX information available."
         )
+
 
 
     # --------------------------------------------------
