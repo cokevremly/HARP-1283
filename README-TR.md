@@ -2,6 +2,8 @@
 
 ### Hybrid Analysis & Reconnaissance Platform
 
+(README-EN.md)
+
 HARP-1283; **URL güvenlik analizi, risk skorlama, SSL/TLS incelemesi, domain istihbaratı, DNS analizi ve harici Threat Intelligence kaynaklarını** tek bir analiz akışında birleştiren Python tabanlı bir siber güvenlik platformudur.
 
 Proje, şüpheli URL ve domainlerin güvenlik açısından incelenebilmesini sağlayan pratik ve geliştirilebilir bir platform olarak tasarlanmıştır.
