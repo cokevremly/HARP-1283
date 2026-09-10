@@ -2,7 +2,7 @@
 
 ### Hybrid Analysis & Reconnaissance Platform
 
-[🇹🇷 Türkçe](README-TR.md)
+[Türkçe için](README-TR.md)
 
 HARP-1283 is a Python-based cybersecurity analysis platform that combines **URL security analysis, risk scoring, SSL/TLS inspection, domain intelligence, DNS analysis, and external Threat Intelligence sources** into a unified workflow.
 
